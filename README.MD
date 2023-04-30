@@ -43,3 +43,7 @@ You can use `LFN_DB` variable to specify the path of database to whereever you w
 ## Why not longer filename??
 
 The is a limitation set in [Linux kernel](https://github.com/torvalds/linux/blob/825a0714d2b3883d4f8ff64f6933fb73ee3f1834/fs/fuse/fuse_i.h#L45), if you compile your own kernel you can overcome this limit.
+
+## My program has crashed and mountpoint became busy/unavailable
+
+fusermount -u <mountpoint>
