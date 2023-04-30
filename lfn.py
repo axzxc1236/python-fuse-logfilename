@@ -401,11 +401,9 @@ class Operations(llfuse.Operations):
     def create(self, inode_p, name, mode, flags, ctx):
         path = os.path.join(self._inode_to_path(inode_p), fsdecode(name))
         path = virtual_to_real_path(path)
-        print("[create]", path)
         try:
             fd = os.open(path, flags | os.O_CREAT | os.O_TRUNC)
         except OSError as exc:
-            print("[create]", error, path)
             raise FUSEError(exc.errno)
         attr = self._getattr(fd=fd)
         self._add_path(attr.st_ino, path)
