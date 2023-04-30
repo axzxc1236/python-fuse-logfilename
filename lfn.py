@@ -24,9 +24,9 @@ from peewee import SqliteDatabase, Model, CharField
 if "LFN_DB" in os.environ:
     dbPath = os.environ["LFN_DB"]
 elif "XDG_DATA_HOME" in os.environ:
-    dbPath = os.environ["XDG_DATA_HOME"] + "/LargeFileName.db"
+    dbPath = os.environ["XDG_DATA_HOME"] + "/LongFileName.db"
 else:
-    dbPath = os.path.expanduser("~/.local/share/LargeFileName.db")
+    dbPath = os.path.expanduser("~/.local/share/LongFileName.db")
 
 db = SqliteDatabase(dbPath, pragmas={
     'journal_mode': 'wal',
